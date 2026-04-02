@@ -1,38 +1,62 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Watermark } from '../components';
 
-// Skyline repeats 3x, others play once
-const COVER_GIFS = [
-  '/Maimi_1t9mw2JfVNe0ZRNOWXU3.gif',
-  '/Maimi_pe1Q1A1GVHNfIgtobMoK.gif',
-  '/Maimi_1t9mw2JfVNe0ZRNOWXU3.gif',
-  '/Maimi_CSbGgtMOzwYeQYjwi2Ht.gif',
-  '/Maimi_1t9mw2JfVNe0ZRNOWXU3.gif',
-  '/Maimi_0CEc2gel9eajlYtVDg7O.gif',
+// Trailer clips for cover background carousel
+const COVER_CLIPS = [
+  '/clip_skyline.mp4',   // Miami skyline title card
+  '/clip_street.mp4',    // Street driving establishing shot
+  '/clip_skyline.mp4',   // Skyline repeat
+  '/clip_crew.mp4',      // Two leads by red convertible
+  '/clip_skyline.mp4',   // Skyline repeat
+  '/clip_club.mp4',      // Pink suit nightlife
+  '/clip_neon.mp4',      // Blue/red neon club
+  '/clip_portrait.mp4',  // Character close-up
 ];
 
-const CYCLE_DURATION = 6000; // ms per GIF
+const CYCLE_DURATION = 6000; // ms per clip
 
 export const CoverSlide = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setActiveIndex(prev => (prev + 1) % COVER_GIFS.length);
+      setActiveIndex(prev => (prev + 1) % COVER_CLIPS.length);
     }, CYCLE_DURATION);
     return () => clearInterval(timer);
   }, []);
 
+  // Play/pause videos based on active index
+  useEffect(() => {
+    videoRefs.current.forEach((video, i) => {
+      if (!video) return;
+      if (i === activeIndex) {
+        video.currentTime = 0;
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  }, [activeIndex]);
+
   return (
     <div className="h-full flex flex-col md:flex-row relative overflow-hidden">
-      {/* Looping GIF Background */}
-      {COVER_GIFS.map((src, i) => (
+      {/* Looping Trailer Clip Background */}
+      {COVER_CLIPS.map((src, i) => (
         <div
           key={i}
           className="absolute inset-0 z-0 transition-opacity duration-[2000ms] ease-in-out"
           style={{ opacity: i === activeIndex ? 1 : 0 }}
         >
-          <img src={src} alt="" className="w-full h-full object-cover" />
+          <video
+            ref={el => { videoRefs.current[i] = el; }}
+            src={src}
+            className="w-full h-full object-cover"
+            muted
+            playsInline
+            loop
+            preload={i < 2 ? 'auto' : 'metadata'}
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-coh-bg/90 via-coh-bg/60 to-coh-bg/30" />
           <div className="absolute inset-0 bg-gradient-to-t from-coh-bg/80 via-transparent to-coh-bg/40" />
         </div>
@@ -78,7 +102,7 @@ export const CoverSlide = () => {
 
         {/* GIF progress indicators — mobile (below stats) */}
         <div className="flex md:hidden gap-2 mt-6">
-          {COVER_GIFS.map((_, i) => (
+          {COVER_CLIPS.map((_, i) => (
             <div key={i} className="relative w-12 h-0.5 bg-white/20 overflow-hidden">
               <div
                 className={`absolute inset-y-0 left-0 bg-coh-orange transition-all ${i === activeIndex ? 'animate-fill-bar' : i < activeIndex ? 'w-full' : 'w-0'}`}
@@ -91,7 +115,7 @@ export const CoverSlide = () => {
       {/* Right — GIF progress indicators (desktop only) */}
       <div className="hidden md:flex w-1/2 relative z-10 items-end justify-end p-12">
         <div className="flex gap-2">
-          {COVER_GIFS.map((_, i) => (
+          {COVER_CLIPS.map((_, i) => (
             <div key={i} className="relative w-12 h-0.5 bg-white/20 overflow-hidden">
               <div
                 className={`absolute inset-y-0 left-0 bg-coh-orange transition-all ${i === activeIndex ? 'animate-fill-bar' : i < activeIndex ? 'w-full' : 'w-0'}`}
