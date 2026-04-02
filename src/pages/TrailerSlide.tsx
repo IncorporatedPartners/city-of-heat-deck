@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { Watermark } from '../components';
 
+const TRAILER_URL = import.meta.env.PROD
+  ? 'https://github.com/IncorporatedPartners/city-of-heat-deck/releases/download/v1.0/COH_Trailer.mp4'
+  : '/COH_Trailer.mp4';
+
 export const TrailerSlide = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -25,7 +29,7 @@ export const TrailerSlide = () => {
             <>
               {/* Poster / Preview Frame — full bleed */}
               <video
-                src="/COH_Trailer.mp4"
+                src={TRAILER_URL}
                 className="w-full h-full object-contain bg-black"
                 muted
                 playsInline
@@ -72,7 +76,7 @@ export const TrailerSlide = () => {
             </>
           ) : (
             <video
-              src="/COH_Trailer.mp4"
+              src={TRAILER_URL}
               className="w-full h-full object-contain bg-black"
               controls
               autoPlay
