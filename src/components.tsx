@@ -144,7 +144,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
     <div className="bg-coh-bg text-coh-light font-sans h-screen flex flex-col relative overflow-hidden">
       <Header
         leftTitle={current.name}
-        centerSub="CONFIDENTIAL PITCH DECK // 2025"
+        centerSub="CONFIDENTIAL PITCH DECK // 2026"
         rightContent={<div className="font-mono text-[10px] text-coh-orange tracking-widest">SECURE_ACCESS [GRANTED]</div>}
       />
       <main className="flex-1 relative z-10 overflow-y-auto md:overflow-hidden">
