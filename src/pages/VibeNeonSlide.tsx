@@ -1,6 +1,6 @@
 export const VibeNeonSlide = () => (
   <div className="h-full flex flex-col relative overflow-hidden">
-    <div className="absolute top-6 left-8 z-20">
+    <div className="absolute top-4 left-4 md:top-6 md:left-8 z-20">
       <div className="font-mono text-[10px] text-coh-orange tracking-widest uppercase">VISUAL LANGUAGE // NEON NOIR</div>
     </div>
 
@@ -13,7 +13,7 @@ export const VibeNeonSlide = () => (
           className="w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
-        <div className="absolute bottom-6 left-8 font-mono text-[10px] text-white/80 tracking-widest uppercase">
+        <div className="absolute bottom-4 left-4 md:bottom-6 md:left-8 font-mono text-[10px] text-white/80 tracking-widest uppercase">
           OCEAN DRIVE // EXT. NIGHT
         </div>
       </div>

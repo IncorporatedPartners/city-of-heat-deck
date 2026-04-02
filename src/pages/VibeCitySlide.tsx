@@ -1,6 +1,6 @@
 export const VibeCitySlide = () => (
   <div className="h-full flex flex-col relative overflow-hidden">
-    <div className="absolute top-6 left-8 z-20">
+    <div className="absolute top-4 left-4 md:top-6 md:left-8 z-20">
       <div className="font-mono text-[10px] text-coh-orange tracking-widest uppercase">VISUAL LANGUAGE // THE CITY</div>
     </div>
 

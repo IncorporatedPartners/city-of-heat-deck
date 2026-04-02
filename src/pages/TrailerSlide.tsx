@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import { Watermark } from '../components';
 
-const TRAILER_URL = import.meta.env.PROD
-  ? 'https://github.com/IncorporatedPartners/city-of-heat-deck/releases/download/v1.0/COH_Trailer.mp4'
-  : '/COH_Trailer.mp4';
+const TRAILER_URL = '/COH_Trailer.mp4';
 
 export const TrailerSlide = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -46,20 +44,20 @@ export const TrailerSlide = () => {
                 className="absolute inset-0 flex items-center justify-center cursor-pointer group/btn"
               >
                 <div className="relative">
-                  <div className="w-28 h-28 rounded-full border-2 border-coh-orange/60 flex items-center justify-center group-hover/btn:border-coh-orange group-hover/btn:scale-110 transition-all duration-500 bg-black/30 backdrop-blur-sm">
-                    <div className="w-0 h-0 border-l-[24px] border-l-coh-orange border-t-[14px] border-t-transparent border-b-[14px] border-b-transparent ml-2 group-hover/btn:border-l-white transition-colors duration-300" />
+                  <div className="w-20 h-20 md:w-28 md:h-28 rounded-full border-2 border-coh-orange/60 flex items-center justify-center group-hover/btn:border-coh-orange group-hover/btn:scale-110 transition-all duration-500 bg-black/30 backdrop-blur-sm">
+                    <div className="w-0 h-0 border-l-[16px] md:border-l-[24px] border-l-coh-orange border-t-[10px] md:border-t-[14px] border-t-transparent border-b-[10px] md:border-b-[14px] border-b-transparent ml-2 group-hover/btn:border-l-white transition-colors duration-300" />
                   </div>
-                  <div className="absolute inset-0 w-28 h-28 rounded-full border border-coh-orange/30 animate-ping" />
+                  <div className="absolute inset-0 w-20 h-20 md:w-28 md:h-28 rounded-full border border-coh-orange/30 animate-ping" />
                 </div>
               </button>
 
               {/* Bottom overlay text */}
-              <div className="absolute bottom-8 left-10 right-10 flex justify-between items-end">
+              <div className="absolute bottom-4 md:bottom-8 left-4 md:left-10 right-4 md:right-10 flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 sm:gap-0">
                 <div>
-                  <div className="font-bebas text-3xl text-white tracking-widest">OFFICIAL TRAILER</div>
-                  <div className="font-mono text-[9px] text-coh-orange tracking-widest uppercase">SEASON ONE // CITY OF HEAT</div>
+                  <div className="font-bebas text-xl md:text-3xl text-white tracking-widest">OFFICIAL TRAILER</div>
+                  <div className="font-mono text-[8px] md:text-[9px] text-coh-orange tracking-widest uppercase">SEASON ONE // CITY OF HEAT</div>
                 </div>
-                <div className="text-right">
+                <div className="hidden sm:block text-right">
                   <div className="font-mono text-[8px] text-coh-gray tracking-widest uppercase">
                     DIRECTED BY <span className="text-white">MARCUS "BENMARC" TURNER</span>
                   </div>
@@ -85,8 +83,8 @@ export const TrailerSlide = () => {
         </div>
 
         {/* Below video — metadata strip */}
-        <div className="w-full px-10 py-4 flex justify-between items-center bg-coh-bg/80 border-t border-coh-border/30 shrink-0">
-          <div className="flex gap-10">
+        <div className="w-full px-4 py-3 md:px-10 md:py-4 flex flex-wrap md:flex-nowrap justify-between items-center bg-coh-bg/80 border-t border-coh-border/30 shrink-0">
+          <div className="flex flex-wrap gap-4 md:gap-10">
             <div>
               <div className="font-mono text-[9px] text-coh-orange tracking-widest uppercase mb-1">CREATED BY</div>
               <div className="font-mono text-[10px] text-white tracking-widest">DONELL HARRIS</div>
@@ -100,7 +98,7 @@ export const TrailerSlide = () => {
               <div className="font-mono text-[10px] text-white tracking-widest">C-CLEAR PRODUCTIONS</div>
             </div>
           </div>
-          <div className="border border-coh-border px-4 py-2">
+          <div className="hidden md:block border border-coh-border px-4 py-2">
             <div className="font-mono text-[9px] text-coh-gray tracking-widest uppercase">
               TRAILER STATUS: <span className="text-green-500">LIVE</span>
             </div>

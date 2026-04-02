@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/COH_Trailer.mp4",
+      "destination": "https://github.com/IncorporatedPartners/city-of-heat-deck/releases/download/v1.0/COH_Trailer.mp4",
+      "statusCode": 302
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

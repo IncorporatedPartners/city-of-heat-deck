@@ -1,6 +1,6 @@
 export const StillsHustleSlide = () => (
   <div className="h-full flex flex-col relative overflow-hidden">
-    <div className="absolute top-6 left-8 z-20">
+    <div className="absolute top-4 left-4 md:top-6 md:left-8 z-20">
       <div className="font-mono text-[10px] text-coh-orange tracking-widest uppercase">PRODUCTION STILLS // THE HUSTLE</div>
     </div>
 
@@ -13,7 +13,7 @@ export const StillsHustleSlide = () => (
           className="w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
-        <div className="absolute bottom-6 left-8 font-mono text-[10px] text-white/80 tracking-widest uppercase">
+        <div className="absolute bottom-4 left-4 md:bottom-6 md:left-8 font-mono text-[10px] text-white/80 tracking-widest uppercase">
           SC_06 // INT. VEHICLE — DAY
         </div>
       </div>
@@ -42,7 +42,7 @@ export const StillsHustleSlide = () => (
             SC_19 // THE CREW
           </div>
         </div>
-        <div className="w-48 shrink-0 relative overflow-hidden">
+        <div className="flex-1 md:flex-none md:w-48 md:shrink-0 relative overflow-hidden">
           <img
             src="/Maimi_lIW8YCHhrU0twi1U2uuW.jpeg"
             alt="Oldsmobile detail"

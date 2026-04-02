@@ -5,8 +5,8 @@ export const DossierSlide = () => (
   <div className="h-full flex flex-col relative overflow-hidden">
     <SlideBackground src={BACKDROPS.dossier} opacity="opacity-10" />
 
-    <div className="flex-1 relative p-6 z-10">
-      <div className="grid grid-cols-4 grid-rows-3 gap-3 h-full">
+    <div className="flex-1 relative p-3 md:p-6 z-10">
+      <div className="grid grid-cols-2 md:grid-cols-4 grid-rows-auto md:grid-rows-3 gap-2 md:gap-3 h-full">
         {GALLERY.map((img, i) => (
           <div key={i} className={`${img.span} relative group overflow-hidden border border-coh-border/50`}>
             <img

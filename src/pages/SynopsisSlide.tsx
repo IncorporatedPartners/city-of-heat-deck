@@ -6,12 +6,12 @@ export const SynopsisSlide = () => (
     <SlideBackground src={BACKDROPS.synopsis} opacity="opacity-25" />
     <Watermark text="SYNOPSIS" />
 
-    <div className="flex-1 flex relative z-10">
+    <div className="flex-1 flex flex-col md:flex-row relative z-10 overflow-y-auto md:overflow-hidden">
       {/* Left — Text Content */}
-      <div className="w-7/12 p-10 flex flex-col justify-center">
+      <div className="w-full md:w-7/12 p-4 md:p-10 flex flex-col justify-center">
         <div className="font-mono text-[10px] text-coh-orange tracking-widest mb-4 uppercase">SEASON ONE // SERIES OVERVIEW</div>
 
-        <h2 className="font-bebas text-4xl leading-[0.9] max-w-3xl mb-8 tracking-wide">
+        <h2 className="font-bebas text-2xl md:text-4xl leading-[0.9] max-w-3xl mb-8 tracking-wide">
           <span className="text-white">WHEN A ROBBERY GOES WRONG AND MISTAKEN IDENTITY IGNITES A WAR, </span>
           <span className="text-coh-orange">ALLIANCES FRACTURE ACROSS MIAMI</span>
           <span className="text-white"> — AND THE CONSEQUENCES REACH EVERYONE.</span>
@@ -25,7 +25,7 @@ export const SynopsisSlide = () => (
         </div>
 
         {/* Core Character Archetypes */}
-        <div className="flex gap-3 mb-5">
+        <div className="flex flex-col md:flex-row gap-3 mb-5">
           {CORE_ARCHETYPES.map(arch => (
             <div key={arch.title} className="bg-coh-panel/60 border border-coh-border px-4 py-3 flex-1">
               <div className="font-bebas text-lg text-white tracking-widest leading-tight">{arch.title}</div>
@@ -35,9 +35,9 @@ export const SynopsisSlide = () => (
         </div>
 
         {/* Tone Comps */}
-        <div className="flex gap-3 mb-4">
+        <div className="flex flex-wrap gap-3 mb-4">
           {TONE_COMPS.map(comp => (
-            <div key={comp.title} className="bg-coh-panel/60 border border-coh-border px-3 py-2 flex-1">
+            <div key={comp.title} className="bg-coh-panel/60 border border-coh-border px-3 py-2 flex-1 min-w-[calc(50%-0.75rem)] md:min-w-0">
               <div className="font-bebas text-lg text-white tracking-widest">{comp.title}</div>
               <div className="font-mono text-[8px] text-coh-orange tracking-widest uppercase">{comp.aspect}</div>
             </div>
@@ -55,13 +55,13 @@ export const SynopsisSlide = () => (
       </div>
 
       {/* Right — Mood Images */}
-      <div className="w-5/12 p-6 flex flex-col gap-4 relative z-10">
+      <div className="w-full md:w-5/12 p-3 md:p-6 flex flex-col gap-4 relative z-10 h-64 md:h-auto overflow-hidden">
         <div className="flex-1 relative overflow-hidden border border-coh-border/50 group">
           <img src="/Maimi_d64kmb8ngeElSOAX59UW.jpeg" alt="Mood" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
           <div className="absolute inset-0 bg-coh-orange/10 mix-blend-overlay" />
           <div className="absolute bottom-4 left-4 font-mono text-[10px] text-coh-orange tracking-widest uppercase bg-black/80 px-2 py-1 border border-coh-orange">MOOD_REF_01</div>
         </div>
-        <div className="flex gap-4 h-1/3">
+        <div className="hidden md:flex gap-4 h-1/3">
           <div className="flex-1 relative overflow-hidden border border-coh-border/50 group">
             <img src="/Maimi_dttjoNUZMngG70zG0Z1f.jpeg" alt="Night Drive" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
           </div>
