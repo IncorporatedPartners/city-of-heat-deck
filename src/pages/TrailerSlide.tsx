@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Watermark } from '../components';
 
-const TRAILER_URL = '/COH_Trailer.mp4';
+const TRAILER_URL = '/COH_Trailer_web.mp4';
 
 export const TrailerSlide = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -25,15 +25,13 @@ export const TrailerSlide = () => {
         <div className="w-full h-full relative bg-black overflow-hidden group flex items-center justify-center">
           {!isPlaying ? (
             <>
-              {/* Poster / Preview Frame — full bleed */}
-              <video
-                src={TRAILER_URL}
-                className="w-full h-full object-contain bg-black"
-                muted
-                playsInline
-                preload="metadata"
+              {/* Poster Image — static, no video preload */}
+              <img
+                src="/Maimi_Bdmb7mlgbzjDYvFgJ3RD.jpeg"
+                alt="City of Heat Trailer"
+                className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-black/50" />
+              <div className="absolute inset-0 bg-black/60" />
 
               {/* Film grain overlay */}
               <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJmIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC44IiBudW1PY3RhdmVzPSI0IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIzMDAiIGZpbHRlcj0idXJsKCNmKSIgb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')] opacity-20" />
