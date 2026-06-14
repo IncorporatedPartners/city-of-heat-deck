@@ -8,6 +8,7 @@ const ensemble = CAST_MEMBERS.filter((member) => member.tier === 'ensemble');
 
 const EnsembleCard: FC<{ char: CastMember; index: number }> = ({ char, index }) => {
   const longName = char.name.length > 10;
+  const nameParts = char.name.split(' ');
 
   return (
     <div className="group bg-coh-panel/70 border border-coh-border hover:border-coh-orange/50 transition-all duration-500 overflow-hidden flex min-h-[128px] md:min-h-0 md:h-full">
@@ -24,8 +25,12 @@ const EnsembleCard: FC<{ char: CastMember; index: number }> = ({ char, index }) 
         )}
       </div>
       <div className="p-3 min-w-0 flex flex-col justify-center">
-        <div className={`font-bebas text-white tracking-widest leading-[0.92] break-words ${longName ? 'text-[1.65rem] md:text-[1.9rem] xl:text-[2.05rem]' : 'text-2xl md:text-3xl'}`}>
-          {char.name}
+        <div className={`font-bebas text-white tracking-widest leading-[0.92] ${longName ? 'text-[1.45rem] md:text-[1.65rem] xl:text-[1.8rem]' : 'text-2xl md:text-3xl'}`}>
+          {nameParts.map((part) => (
+            <span key={part} className="block whitespace-nowrap">
+              {part}
+            </span>
+          ))}
         </div>
         <div className="font-mono text-[7px] md:text-[8px] text-coh-light tracking-widest truncate mt-1">{char.actor}</div>
         <div className="font-mono text-[7px] text-coh-orange tracking-widest uppercase truncate mt-1">{char.role}</div>
