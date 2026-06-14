@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useCallback } from 'react';
+import React, { useEffect, useRef, useCallback, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { FLOW } from './data';
 
@@ -29,7 +29,7 @@ export const Header = ({ leftTitle, leftSub, centerTitle, centerSub, rightConten
   </header>
 );
 
-export const FooterNav = ({ prev, next, page, onPrev, onNext, currentIndex, total }: any) => (
+export const FooterNav = ({ prev, next, page, onPrev, onNext, onDotClick, currentIndex, total }: any) => (
   <footer className="flex justify-between items-center px-4 py-3 md:px-8 md:py-5 border-t border-coh-border/50 bg-coh-bg/60 backdrop-blur-sm z-50 relative shrink-0">
     <div className="hidden md:flex items-center gap-4 w-1/3">
       {prev && (
@@ -41,7 +41,17 @@ export const FooterNav = ({ prev, next, page, onPrev, onNext, currentIndex, tota
     <div className="flex flex-col items-center gap-1 md:gap-2 w-full md:w-1/3">
       <div className="flex gap-1 md:gap-1.5">
         {Array.from({ length: total }).map((_, i) => (
-          <div key={i} className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full transition-all ${i === currentIndex ? 'bg-coh-orange scale-125' : 'bg-coh-border'}`} />
+          <div key={i} className="relative group">
+            <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50">
+              <div className="bg-coh-panel border border-coh-border px-2 py-1 font-mono text-[8px] text-coh-orange whitespace-nowrap">
+                {FLOW[i]?.page}
+              </div>
+            </div>
+            <button
+              onClick={() => onDotClick?.(i)}
+              className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full transition-all cursor-pointer ${i === currentIndex ? 'bg-coh-orange scale-125' : 'bg-coh-border hover:bg-coh-gray'}`}
+            />
+          </div>
         ))}
       </div>
       <div className="font-mono text-[9px] md:text-[10px] text-coh-gray tracking-widest uppercase">{page}</div>
@@ -63,6 +73,9 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
   const isScrolling = useRef(false);
   const scrollTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
   const touchStart = useRef<{ x: number; y: number } | null>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [audioStarted, setAudioStarted] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
 
   const currentIndex = FLOW.findIndex(f => f.path === location.pathname);
   const current = FLOW[currentIndex] || FLOW[0];
@@ -86,6 +99,35 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
       scrollTimeout.current = setTimeout(() => { isScrolling.current = false; }, 800);
     }
   }, [prev, navigate]);
+
+  useEffect(() => {
+    if (audioStarted) return;
+    const startAudio = () => {
+      if (!audioRef.current || audioStarted) return;
+      audioRef.current.volume = 0.12;
+      audioRef.current.play().catch(() => {});
+      setAudioStarted(true);
+    };
+    window.addEventListener('click', startAudio, { once: true });
+    window.addEventListener('keydown', startAudio, { once: true });
+    window.addEventListener('touchstart', startAudio, { once: true });
+    return () => {
+      window.removeEventListener('click', startAudio);
+      window.removeEventListener('keydown', startAudio);
+      window.removeEventListener('touchstart', startAudio);
+    };
+  }, [audioStarted]);
+
+  const toggleAudio = useCallback(() => {
+    if (!audioRef.current) return;
+    if (isMuted) {
+      audioRef.current.volume = 0.12;
+      audioRef.current.play().catch(() => {});
+    } else {
+      audioRef.current.pause();
+    }
+    setIsMuted(!isMuted);
+  }, [isMuted]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -142,10 +184,37 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div className="bg-coh-bg text-coh-light font-sans h-screen flex flex-col relative overflow-hidden">
+      <audio ref={audioRef} src="/coh-ambient.mp3" loop preload="auto" />
       <Header
         leftTitle={current.name}
-        centerSub="CONFIDENTIAL PITCH DECK // 2026"
-        rightContent={<div className="font-mono text-[10px] text-coh-orange tracking-widest">SECURE_ACCESS [GRANTED]</div>}
+        centerSub="SERIES PRESENTATION // 2026"
+        rightContent={
+          <div className="flex items-center gap-4">
+            {audioStarted && (
+              <button
+                onClick={toggleAudio}
+                className="font-mono text-[10px] tracking-widest cursor-pointer hover:opacity-70 transition-opacity flex items-center gap-1.5"
+                title={isMuted ? 'Unmute' : 'Mute'}
+              >
+                {isMuted ? (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-coh-gray">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                    <line x1="23" y1="9" x2="17" y2="15" />
+                    <line x1="17" y1="9" x2="23" y2="15" />
+                  </svg>
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-coh-orange">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+                  </svg>
+                )}
+                <span className={isMuted ? 'text-coh-gray' : 'text-coh-orange'}>{isMuted ? 'SOUND OFF' : 'SOUND ON'}</span>
+              </button>
+            )}
+            <div className="font-mono text-[10px] text-coh-orange tracking-widest">INDUSTRY_PREVIEW</div>
+          </div>
+        }
       />
       <main className="flex-1 relative z-10 overflow-y-auto md:overflow-hidden">
         {children}
@@ -158,6 +227,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
         total={FLOW.length}
         onPrev={goPrev}
         onNext={goNext}
+        onDotClick={(index: number) => navigate(FLOW[index].path)}
       />
     </div>
   );

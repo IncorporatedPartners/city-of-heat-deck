@@ -20,13 +20,13 @@ export const VibeStreetSlide = () => (
         </div>
         <div className="flex-1 relative overflow-hidden group">
           <img
-            src="/Maimi_TmCRWGMyK7NhROS9QrR2.jpeg"
-            alt="Night Meet"
+            src="/reel-stills/cropped/reel-car-arrival.jpg"
+            alt="Car arrival"
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
           <div className="absolute bottom-4 right-6 font-mono text-[10px] text-white/80 tracking-widest uppercase">
-            SC_08 // THE CONNECT
+            ARRIVAL // EXT. DAY
           </div>
         </div>
       </div>

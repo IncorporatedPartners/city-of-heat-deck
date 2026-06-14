@@ -1,17 +1,17 @@
 import { SlideBackground, Watermark } from '../components';
-import { BACKDROPS, ARC } from '../data';
+import { ARC } from '../data';
 
 export const StoryArcSlide = () => (
   <div className="h-full flex flex-col relative overflow-hidden">
-    <SlideBackground src={BACKDROPS.arc} opacity="opacity-20" />
+    <SlideBackground src="/Maimi_0rdjMFzZF6TvRqb2pSAf.jpeg" opacity="opacity-10" />
     <Watermark text="NARRATIVE" />
 
     <div className="flex-1 p-4 md:p-8 relative z-10 flex items-start md:items-center overflow-y-auto">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 w-full max-w-7xl mx-auto md:h-full md:max-h-[85%]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 w-full max-w-7xl mx-auto md:h-full md:max-h-[90%]">
         {ARC.map((act, i) => (
           <div key={act.title} className="group relative flex flex-col border border-coh-border overflow-hidden hover:border-coh-orange/50 transition-all duration-500 max-h-none">
             {/* Act Background Image */}
-            <div className="h-32 sm:h-36 md:h-2/5 relative overflow-hidden">
+            <div className="h-40 sm:h-44 md:h-1/2 relative overflow-hidden">
               <img
                 src={act.image}
                 alt={act.title}

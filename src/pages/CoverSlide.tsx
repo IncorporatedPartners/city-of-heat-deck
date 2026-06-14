@@ -1,19 +1,15 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Watermark } from '../components';
 
-// Trailer clips for cover background carousel
 const COVER_CLIPS = [
-  '/clip_skyline.mp4',   // Miami skyline title card
-  '/clip_street.mp4',    // Street driving establishing shot
-  '/clip_skyline.mp4',   // Skyline repeat
-  '/clip_crew.mp4',      // Two leads by red convertible
-  '/clip_skyline.mp4',   // Skyline repeat
-  '/clip_club.mp4',      // Pink suit nightlife
-  '/clip_neon.mp4',      // Blue/red neon club
-  '/clip_portrait.mp4',  // Character close-up
+  '/clip_street.mp4',
+  '/clip_crew.mp4',
+  '/clip_club.mp4',
+  '/clip_neon.mp4',
+  '/clip_portrait.mp4',
 ];
 
-const CYCLE_DURATION = 6000; // ms per clip
+const CYCLE_DURATION = 6000;
 
 export const CoverSlide = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -21,12 +17,11 @@ export const CoverSlide = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setActiveIndex(prev => (prev + 1) % COVER_CLIPS.length);
+      setActiveIndex((prev) => (prev + 1) % COVER_CLIPS.length);
     }, CYCLE_DURATION);
     return () => clearInterval(timer);
   }, []);
 
-  // Play/pause videos based on active index
   useEffect(() => {
     videoRefs.current.forEach((video, i) => {
       if (!video) return;
@@ -41,7 +36,6 @@ export const CoverSlide = () => {
 
   return (
     <div className="h-full flex flex-col md:flex-row relative overflow-hidden">
-      {/* Looping Trailer Clip Background */}
       {COVER_CLIPS.map((src, i) => (
         <div
           key={i}
@@ -49,7 +43,7 @@ export const CoverSlide = () => {
           style={{ opacity: i === activeIndex ? 1 : 0 }}
         >
           <video
-            ref={el => { videoRefs.current[i] = el; }}
+            ref={(el) => { videoRefs.current[i] = el; }}
             src={src}
             className="w-full h-full object-cover"
             muted
@@ -64,9 +58,8 @@ export const CoverSlide = () => {
 
       <Watermark text="COH" />
 
-      {/* Left — Title */}
       <div className="w-full md:w-1/2 p-6 md:p-16 flex flex-col justify-center relative z-10">
-        <div className="font-mono text-xs text-coh-orange tracking-widest mb-6 md:mb-12 uppercase">SEASON ONE // FINISHING FUND</div>
+        <div className="font-mono text-xs text-coh-orange tracking-widest mb-6 md:mb-12 uppercase">SEASON ONE // SERIES PRESENTATION</div>
 
         <div className="flex flex-col mb-6 md:mb-12">
           <h1 className="font-bebas text-[5rem] md:text-[11rem] leading-[0.8] text-white tracking-tighter">CITY</h1>
@@ -76,7 +69,7 @@ export const CoverSlide = () => {
 
         <div className="border-l-2 border-coh-orange pl-4 md:pl-6 mb-6 md:mb-10 max-w-md">
           <p className="text-coh-light text-sm md:text-base leading-relaxed">
-            In the relentless heat of Miami, a rising street entrepreneur is drawn into a volatile city-wide power struggle where ambition collides with loyalty, rivals circle for control, and one miscalculation could ignite a war that reshapes the streets — and the system behind them.
+            In the relentless heat of Miami, a rising street entrepreneur is drawn into a volatile city-wide power struggle where ambition collides with loyalty, rivals circle for control, and one miscalculation could ignite a war that reshapes the streets - and the system behind them.
           </p>
         </div>
 
@@ -92,34 +85,28 @@ export const CoverSlide = () => {
           </div>
           <div>
             <div className="text-coh-orange mb-2">STATUS</div>
-            <div className="text-coh-gray">POST-PRODUCTION</div>
+            <div className="text-coh-gray">SIZZLE LIVE</div>
           </div>
           <div>
-            <div className="text-coh-orange mb-2">THE ASK</div>
-            <div className="text-coh-gray">$500,000</div>
+            <div className="text-coh-orange mb-2">PACKAGE</div>
+            <div className="text-coh-gray">TALENT-READY</div>
           </div>
         </div>
 
-        {/* GIF progress indicators — mobile (below stats) */}
         <div className="flex md:hidden gap-2 mt-6">
           {COVER_CLIPS.map((_, i) => (
             <div key={i} className="relative w-12 h-0.5 bg-white/20 overflow-hidden">
-              <div
-                className={`absolute inset-y-0 left-0 bg-coh-orange transition-all ${i === activeIndex ? 'animate-fill-bar' : i < activeIndex ? 'w-full' : 'w-0'}`}
-              />
+              <div className={`absolute inset-y-0 left-0 bg-coh-orange transition-all ${i === activeIndex ? 'animate-fill-bar' : i < activeIndex ? 'w-full' : 'w-0'}`} />
             </div>
           ))}
         </div>
       </div>
 
-      {/* Right — GIF progress indicators (desktop only) */}
       <div className="hidden md:flex w-1/2 relative z-10 items-end justify-end p-12">
         <div className="flex gap-2">
           {COVER_CLIPS.map((_, i) => (
             <div key={i} className="relative w-12 h-0.5 bg-white/20 overflow-hidden">
-              <div
-                className={`absolute inset-y-0 left-0 bg-coh-orange transition-all ${i === activeIndex ? 'animate-fill-bar' : i < activeIndex ? 'w-full' : 'w-0'}`}
-              />
+              <div className={`absolute inset-y-0 left-0 bg-coh-orange transition-all ${i === activeIndex ? 'animate-fill-bar' : i < activeIndex ? 'w-full' : 'w-0'}`} />
             </div>
           ))}
         </div>

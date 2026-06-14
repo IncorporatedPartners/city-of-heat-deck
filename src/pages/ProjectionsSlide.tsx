@@ -1,50 +1,36 @@
 import { SlideBackground, Watermark } from '../components';
-import { BACKDROPS } from '../data';
+
+const POSITIONING = [
+  { title: 'GROUND LEVEL', signal: 'MIAMI STREETS', note: 'Authentic neighborhood pressure, loyalty codes, and street economy stakes.' },
+  { title: 'SYSTEM LEVEL', signal: 'POWER STRUCTURE', note: 'Law enforcement, supply routes, nightlife, and political leverage pushing against the core crew.' },
+  { title: 'PREMIUM LEVEL', signal: 'TALENT PACKAGE', note: 'A filmed tone piece and attached ensemble positioned for elevated casting conversations.' },
+];
 
 export const ProjectionsSlide = () => (
   <div className="h-full flex flex-col relative overflow-hidden">
-    <SlideBackground src={BACKDROPS.projections} opacity="opacity-15" />
-    <Watermark text="ROI" />
+    <SlideBackground src="/Maimi_CSbGgtMOzwYeQYjwi2Ht.gif" opacity="opacity-15" />
+    <Watermark text="POSITIONING" small />
 
-    <div className="flex-1 flex flex-col justify-center items-center p-12 relative z-10">
-      <div className="w-full max-w-4xl">
-        <div className="flex justify-between font-mono text-[10px] text-coh-gray tracking-widest mb-6 px-6">
-          <span>SCENARIO</span>
-          <span>GROSS REVENUE</span>
-          <span>INVESTOR ROI</span>
+    <div className="flex-1 flex flex-col justify-center items-center p-6 md:p-12 relative z-10">
+      <div className="w-full max-w-5xl">
+        <div className="font-mono text-[10px] text-coh-orange tracking-widest mb-6 uppercase">MARKET POSITION // SERIES PACKAGE</div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+          {POSITIONING.map((item) => (
+            <div key={item.title} className="bg-coh-panel/80 border border-coh-border p-5 md:p-6 hover:border-coh-orange/50 transition-all duration-500">
+              <div className="font-bebas text-3xl text-white tracking-widest mb-2">{item.title}</div>
+              <div className="font-mono text-[10px] text-coh-orange tracking-widest mb-4">{item.signal}</div>
+              <p className="text-coh-gray text-xs leading-relaxed">{item.note}</p>
+            </div>
+          ))}
         </div>
 
-        <div className="space-y-3">
-          <div className="bg-coh-panel/80 border border-coh-border p-6 flex justify-between items-center">
-            <div className="font-bebas text-3xl text-white tracking-widest w-1/3">CONSERVATIVE</div>
-            <div className="font-mono text-lg text-coh-light w-1/3 text-center">$1.2M</div>
-            <div className="font-mono text-lg text-green-500 w-1/3 text-right">120%</div>
-          </div>
-          <div className="bg-coh-panel/80 border border-coh-border p-6 flex justify-between items-center border-l-4 border-l-coh-orange">
-            <div className="font-bebas text-3xl text-coh-orange tracking-widest w-1/3">BASE CASE</div>
-            <div className="font-mono text-lg text-coh-light w-1/3 text-center">$2.5M</div>
-            <div className="font-mono text-lg text-green-500 w-1/3 text-right">180%</div>
-          </div>
-          <div className="bg-coh-panel/80 border border-coh-border p-6 flex justify-between items-center">
-            <div className="font-bebas text-3xl text-white tracking-widest w-1/3">OPTIMISTIC</div>
-            <div className="font-mono text-lg text-coh-light w-1/3 text-center">$5.0M+</div>
-            <div className="font-mono text-lg text-green-500 w-1/3 text-right">350%+</div>
-          </div>
-        </div>
-
-        <div className="mt-12 bg-coh-panel/80 border border-coh-border p-6">
-          <div className="font-mono text-[10px] text-coh-orange tracking-widest mb-4 uppercase">COMPARABLE TITLES</div>
-          <div className="grid grid-cols-3 gap-6">
-            {[
-              { title: 'MOONLIGHT', budget: '$1.5M', gross: '$65M', roi: '4,233%' },
-              { title: 'GET OUT', budget: '$4.5M', gross: '$255M', roi: '5,567%' },
-              { title: 'TANGERINE', budget: '$100K', gross: '$1M', roi: '900%' },
-            ].map(comp => (
-              <div key={comp.title} className="text-center">
-                <div className="font-bebas text-2xl text-white tracking-widest mb-2">{comp.title}</div>
-                <div className="font-mono text-[9px] text-coh-gray tracking-widest">BUDGET: {comp.budget}</div>
-                <div className="font-mono text-[9px] text-coh-gray tracking-widest">GROSS: {comp.gross}</div>
-                <div className="font-mono text-[9px] text-green-500 tracking-widest">ROI: {comp.roi}</div>
+        <div className="mt-8 bg-coh-panel/80 border border-coh-border p-5 md:p-6">
+          <div className="font-mono text-[10px] text-coh-orange tracking-widest mb-4 uppercase">COMPARABLE AUDIENCE LANE</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {['SNOWFALL', 'POWER', 'THE WIRE', 'NARCOS'].map((title) => (
+              <div key={title} className="text-center border border-coh-border/50 p-4">
+                <div className="font-bebas text-2xl text-white tracking-widest">{title}</div>
               </div>
             ))}
           </div>

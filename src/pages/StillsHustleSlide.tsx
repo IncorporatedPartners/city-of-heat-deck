@@ -8,13 +8,13 @@ export const StillsHustleSlide = () => (
       {/* Top — close-up driving, full width cinematic */}
       <div className="flex-[2] relative overflow-hidden">
         <img
-          src="/Maimi_gx22zFQdnwUdJnxF2sBs.jpeg"
-          alt="Behind the wheel"
+          src="/reel-stills/cropped/reel-poker-room.jpg"
+          alt="Poker room"
           className="w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
         <div className="absolute bottom-4 left-4 md:bottom-6 md:left-8 font-mono text-[10px] text-white/80 tracking-widest uppercase">
-          SC_06 // INT. VEHICLE — DAY
+          BACK ROOM // INT. NIGHT
         </div>
       </div>
 
@@ -28,7 +28,7 @@ export const StillsHustleSlide = () => (
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
           <div className="absolute bottom-4 left-6 font-mono text-[10px] text-white/80 tracking-widest uppercase">
-            SC_14 // EXT. MOTEL — NIGHT
+            SC_14 // EXT. MOTEL - NIGHT
           </div>
         </div>
         <div className="flex-1 relative overflow-hidden">

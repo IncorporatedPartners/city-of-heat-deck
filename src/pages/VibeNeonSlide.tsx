@@ -8,13 +8,13 @@ export const VibeNeonSlide = () => (
       {/* Top — Ocean Drive aerial, full width */}
       <div className="flex-[1] relative overflow-hidden group">
         <img
-          src="/Maimi_We9bIIjOeHaiYJDE2lii.jpeg"
-          alt="Ocean Drive"
+          src="/reel-stills/cropped/reel-neon-car.jpg"
+          alt="Neon car"
           className="w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
         <div className="absolute bottom-4 left-4 md:bottom-6 md:left-8 font-mono text-[10px] text-white/80 tracking-widest uppercase">
-          OCEAN DRIVE // EXT. NIGHT
+          NEON TRANSIT // EXT. NIGHT
         </div>
       </div>
 

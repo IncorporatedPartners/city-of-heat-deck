@@ -1,83 +1,71 @@
-import { Watermark } from '../components';
-import { FINANCIALS } from '../data';
+import { SlideBackground, Watermark } from '../components';
+
+const OPPORTUNITIES = [
+  {
+    title: 'PREMIUM ENSEMBLE SPACE',
+    note: 'A Miami crime world built for layered performances, recurring arcs, and high-impact guest turns.',
+  },
+  {
+    title: 'MAJOR ROLES CAN ENTER CLEANLY',
+    note: 'Power brokers, law enforcement, family figures, rivals, and political operators can expand the world without breaking the core story.',
+  },
+  {
+    title: 'WORLD ALREADY BREATHING',
+    note: 'Rooms, streets, cars, clubs, and pressure are already visible in the materials.',
+  },
+  {
+    title: 'CULTURALLY SPECIFIC MIAMI',
+    note: 'The show uses Miami as a pressure system: street economy, nightlife, family, corruption, Caribbean influence, and heat.',
+  },
+  {
+    title: 'FIVE-SEASON RUNWAY',
+    note: 'The narrative scales from survival and territory to infrastructure, politics, legacy, and control.',
+  },
+  {
+    title: 'PRODUCER-FRIENDLY WORLD',
+    note: 'A flexible universe for strategic attachments, producing partners, and premium distribution conversations.',
+  },
+];
 
 export const CapitalSlide = () => (
   <div className="h-full flex relative overflow-hidden bg-coh-bg">
-    <Watermark text="CAPITAL" />
-
-    {/* Decorative circles in background */}
-    <div className="absolute top-20 -left-20 w-64 h-64 rounded-full border border-coh-border/20 z-0" />
-    <div className="absolute top-32 -left-8 w-48 h-48 rounded-full border border-coh-border/15 z-0" />
-    <div className="absolute -bottom-10 left-24 w-40 h-40 rounded-full border border-coh-border/10 z-0" />
+    <SlideBackground src="/Maimi_IjcDd3EMeUOyAtSjpgT2.png" opacity="opacity-8" />
+    <Watermark text="OPPORTUNITY" small />
 
     <div className="flex-1 flex flex-col md:flex-row relative z-10 p-6 md:p-12 items-center max-w-7xl mx-auto w-full overflow-y-auto">
-      {/* Left Side */}
       <div className="w-full md:w-5/12 pr-0 md:pr-12 flex flex-col justify-center mb-8 md:mb-0">
         <div className="font-mono text-[10px] text-coh-orange tracking-widest mb-4 md:mb-8 uppercase">
-          FINISHING FUND // CONFIDENTIAL
+          TALENT OPPORTUNITY // SERIES PRESENTATION
         </div>
 
-        <div className="mb-2">
-          <div className="font-bebas text-[4rem] md:text-[8rem] text-white leading-[0.85] tracking-tight">
-            $500,000
-          </div>
-        </div>
+        <h2 className="font-bebas text-[3.5rem] md:text-[7.5rem] text-white leading-[0.85] tracking-tight mb-4">
+          ROOM FOR
+          <br />
+          <span className="text-coh-orange">MAJOR TALENT</span>
+        </h2>
 
-        <div className="font-bebas text-2xl md:text-4xl text-coh-gray tracking-[0.3em] uppercase mb-4 md:mb-8 leading-tight">
-          FINISHING<br />FUNDS
-        </div>
-
-        <p className="text-coh-gray text-sm leading-relaxed mb-6 md:mb-10 max-w-sm">
-          C-Clear Productions is seeking strategic capital to complete post-production and secure premium market positioning for <span className="text-white italic">City of Heat</span> Season 1.
+        <p className="text-coh-gray text-sm leading-relaxed mb-6 md:mb-10 max-w-md">
+          <span className="text-white italic">City of Heat</span> already has a defined world, attached ensemble, and visual identity. The next strategic move is attaching elevated talent who can deepen the package, expand the audience signal, and bring new authority to the series.
         </p>
 
-        <button className="bg-coh-orange text-white font-bebas text-xl md:text-2xl tracking-[0.2em] px-6 md:px-10 py-4 md:py-5 hover:bg-coh-orange/90 transition-colors uppercase w-full md:w-fit cursor-pointer">
-          REQUEST SCREENING
-        </button>
+        <a
+          href="mailto:donellharris58@gmail.com,benmarc@visionbankfilms.com?subject=City%20of%20Heat%20-%20Talent%20Attachment"
+          className="bg-coh-orange text-white font-bebas text-xl md:text-2xl tracking-[0.2em] px-6 md:px-10 py-4 md:py-5 hover:bg-coh-orange/90 transition-colors uppercase w-full md:w-fit cursor-pointer text-center inline-block"
+        >
+          DISCUSS ATTACHMENT
+        </a>
       </div>
 
-      {/* Right Side — Line Items */}
-      <div className="w-full md:w-7/12 flex flex-col justify-center">
-        <div className="space-y-0">
-          {FINANCIALS.map((item, i) => (
-            <div
-              key={item.name}
-              className="flex items-center justify-between py-3 md:py-5 border-b border-coh-border/30"
-            >
-              <div className="flex items-center gap-3 md:gap-6">
-                <span className="font-mono text-[10px] md:text-xs text-coh-orange tracking-widest">
-                  {String(i + 1).padStart(2, '0')} //
-                </span>
-                <span className="font-mono text-[10px] md:text-xs text-coh-gray tracking-widest uppercase">
-                  {item.name}
-                </span>
-              </div>
-              <div className="font-bebas text-2xl md:text-4xl text-white tracking-wider">
-                ${item.value.toLocaleString()}
-              </div>
+      <div className="w-full md:w-7/12 grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+        {OPPORTUNITIES.map((item, i) => (
+          <div key={item.title} className="bg-coh-panel/75 border border-coh-border p-4 md:p-5 hover:border-coh-orange/50 transition-all duration-500">
+            <div className="font-mono text-[9px] text-coh-orange tracking-widest mb-2">
+              {String(i + 1).padStart(2, '0')} // OPPORTUNITY
             </div>
-          ))}
-        </div>
-
-        {/* Total */}
-        <div className="flex items-center justify-between pt-4 md:pt-8 mt-2 border-t-2 border-coh-orange/60">
-          <div className="font-mono text-[10px] md:text-xs text-coh-orange tracking-[0.3em] uppercase">
-            TOTAL ALLOCATION
+            <div className="font-bebas text-2xl md:text-3xl text-white tracking-widest leading-none mb-3">{item.title}</div>
+            <p className="text-coh-gray text-xs leading-relaxed">{item.note}</p>
           </div>
-          <div className="font-bebas text-3xl md:text-5xl text-coh-orange tracking-wider italic">
-            $500,000
-          </div>
-        </div>
-
-        {/* Distribution Strategy Note */}
-        <div className="mt-4 md:mt-8 bg-coh-panel/60 border border-coh-border/50 p-4 md:p-5">
-          <div className="font-mono text-[9px] text-coh-orange tracking-widest uppercase mb-3">
-            DISTRIBUTION STRATEGY NOTES:
-          </div>
-          <p className="text-coh-gray text-xs leading-relaxed">
-            Tier-1 Streaming positioning with a multi-territory digital rollout. Revenue waterfall projections available in the secondary data pack.
-          </p>
-        </div>
+        ))}
       </div>
     </div>
   </div>

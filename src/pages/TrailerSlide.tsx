@@ -8,15 +8,11 @@ export const TrailerSlide = () => {
 
   return (
     <div className="h-full flex flex-col relative overflow-hidden bg-coh-bg">
-      <Watermark text="TRAILER" />
+      <Watermark text="SIZZLE REEL" />
 
-      {/* Background still frame */}
+      {/* Background wash */}
       <div className="absolute inset-0 z-0">
-        <img
-          src="/Maimi_Bdmb7mlgbzjDYvFgJ3RD.jpeg"
-          alt=""
-          className="w-full h-full object-cover opacity-10 grayscale"
-        />
+        <div className="absolute inset-0 bg-coh-bg" />
         <div className="absolute inset-0 bg-gradient-to-t from-coh-bg via-coh-bg/80 to-coh-bg/60" />
       </div>
 
@@ -28,7 +24,7 @@ export const TrailerSlide = () => {
               {/* Poster Image — static, no video preload */}
               <img
                 src="/Maimi_Bdmb7mlgbzjDYvFgJ3RD.jpeg"
-                alt="City of Heat Trailer"
+                alt="City of Heat Sizzle Reel"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-black/60" />
@@ -52,7 +48,7 @@ export const TrailerSlide = () => {
               {/* Bottom overlay text */}
               <div className="absolute bottom-4 md:bottom-8 left-4 md:left-10 right-4 md:right-10 flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 sm:gap-0">
                 <div>
-                  <div className="font-bebas text-xl md:text-3xl text-white tracking-widest">OFFICIAL TRAILER</div>
+                  <div className="font-bebas text-xl md:text-3xl text-white tracking-widest">SIZZLE REEL</div>
                   <div className="font-mono text-[8px] md:text-[9px] text-coh-orange tracking-widest uppercase">SEASON ONE // CITY OF HEAT</div>
                 </div>
                 <div className="hidden sm:block text-right">
@@ -64,7 +60,7 @@ export const TrailerSlide = () => {
 
               {/* Top corner labels */}
               <div className="absolute top-6 left-8 font-mono text-[8px] text-coh-orange tracking-widest uppercase">
-                PREVIEW // CONFIDENTIAL
+                PREVIEW // SERIES PRESENTATION
               </div>
               <div className="absolute top-6 right-8 font-mono text-[8px] text-coh-gray tracking-widest uppercase">
                 4K ANAMORPHIC
@@ -98,7 +94,7 @@ export const TrailerSlide = () => {
           </div>
           <div className="hidden md:block border border-coh-border px-4 py-2">
             <div className="font-mono text-[9px] text-coh-gray tracking-widest uppercase">
-              TRAILER STATUS: <span className="text-green-500">LIVE</span>
+              REEL STATUS: <span className="text-green-500">LIVE</span>
             </div>
           </div>
         </div>

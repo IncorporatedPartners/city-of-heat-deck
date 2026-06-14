@@ -22,35 +22,35 @@ export const VibeCitySlide = () => (
       <div className="flex-[1] flex gap-1">
         <div className="flex-1 relative overflow-hidden group">
           <img
-            src="/Maimi_Bdmb7mlgbzjDYvFgJ3RD.jpeg"
+            src="/Maimi_VK86lvUPFa0uzkaWjB8N.jpeg"
             alt="Miami Skyline"
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
           <div className="absolute bottom-3 left-4 font-mono text-[9px] text-white/70 tracking-widest uppercase">
-            DOWNTOWN // EXT. DUSK
+            PORT // EXT. NIGHT
           </div>
         </div>
         <div className="flex-1 relative overflow-hidden group">
           <img
-            src="/Maimi_i3MaWmgrdLZac9JllQkX.jpeg"
+            src="/Maimi_G4dWeMpVbmmoRjl1fYwc.jpeg"
             alt="Nightlife"
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
           <div className="absolute bottom-3 left-4 font-mono text-[9px] text-white/70 tracking-widest uppercase">
-            NIGHTLIFE // INT. CLUB
+            LITTLE HAVANA // EXT. DAY
           </div>
         </div>
         <div className="flex-1 relative overflow-hidden group">
           <img
-            src="/Maimi_8h5K495A9PXIuUxT3tAP.jpeg"
-            alt="Vehicle Convoy"
+            src="/Maimi_d64kmb8ngeElSOAX59UW.jpeg"
+            alt="Miami Street Night"
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
           <div className="absolute bottom-3 left-4 font-mono text-[9px] text-white/70 tracking-widest uppercase">
-            CONVOY // EXT. NIGHT
+            PORT // EXT. DUSK
           </div>
         </div>
       </div>
@@ -59,24 +59,24 @@ export const VibeCitySlide = () => (
       <div className="flex-[1] flex gap-1">
         <div className="flex-[2] relative overflow-hidden group">
           <img
-            src="/Maimi_miuGj7PmFCuCfjzWdjne.jpeg"
+            src="/Maimi_FP3ZMDYJx9sPWmqdJ4Yn.jpeg"
             alt="Street Scene"
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
           <div className="absolute bottom-3 left-4 font-mono text-[9px] text-white/70 tracking-widest uppercase">
-            OVERTOWN // EXT. DAY
+            STREET HEAT // EXT. NIGHT
           </div>
         </div>
         <div className="flex-[1] relative overflow-hidden group">
           <img
-            src="/Maimi_nBGCcu5F7jW1aBi4hYP5.jpeg"
+            src="/Maimi_xM2HAjTzuYE63EUEVQVq.jpeg"
             alt="Miami Neon"
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
           <div className="absolute bottom-3 left-4 font-mono text-[9px] text-white/70 tracking-widest uppercase">
-            NEON // EXT. NIGHT
+            STREET CAR // EXT. DUSK
           </div>
         </div>
       </div>

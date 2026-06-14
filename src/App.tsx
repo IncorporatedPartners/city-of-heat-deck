@@ -4,6 +4,7 @@ import { CoverSlide } from './pages/CoverSlide';
 import { SynopsisSlide } from './pages/SynopsisSlide';
 import { VibeNeonSlide } from './pages/VibeNeonSlide';
 import { RosterSlide } from './pages/RosterSlide';
+import { EnsembleSlide } from './pages/EnsembleSlide';
 import { VibeStreetSlide } from './pages/VibeStreetSlide';
 import { StoryArcSlide } from './pages/StoryArcSlide';
 import { VibeCitySlide } from './pages/VibeCitySlide';
@@ -16,6 +17,7 @@ import { AncillarySlide } from './pages/AncillarySlide';
 import { ContactSlide } from './pages/ContactSlide';
 import { FranchiseSlide } from './pages/FranchiseSlide';
 import { TrailerSlide } from './pages/TrailerSlide';
+import { MiamiDossierSlide } from './pages/MiamiDossierSlide';
 
 export default function App() {
   return (
@@ -25,8 +27,10 @@ export default function App() {
           <Route path="/" element={<CoverSlide />} />
           <Route path="/trailer" element={<TrailerSlide />} />
           <Route path="/synopsis" element={<SynopsisSlide />} />
+          <Route path="/dossier-miami" element={<MiamiDossierSlide />} />
           <Route path="/vibe-neon" element={<VibeNeonSlide />} />
           <Route path="/roster" element={<RosterSlide />} />
+          <Route path="/ensemble" element={<EnsembleSlide />} />
           <Route path="/vibe-street" element={<VibeStreetSlide />} />
           <Route path="/arc" element={<StoryArcSlide />} />
           <Route path="/franchise" element={<FranchiseSlide />} />
