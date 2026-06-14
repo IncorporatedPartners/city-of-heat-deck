@@ -89,7 +89,7 @@ export const TrailerSlide = () => {
             </div>
             <div>
               <div className="font-mono text-[9px] text-coh-orange tracking-widest uppercase mb-1">PRODUCTION</div>
-              <div className="font-mono text-[10px] text-white tracking-widest">C-CLEAR PRODUCTIONS</div>
+              <img src="/cclear-studios-logo.png" alt="C-Clear Studios" className="h-8 w-auto opacity-90" />
             </div>
           </div>
           <div className="hidden md:block border border-coh-border px-4 py-2">

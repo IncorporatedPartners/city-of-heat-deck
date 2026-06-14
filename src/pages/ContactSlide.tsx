@@ -40,8 +40,11 @@ export const ContactSlide = () => (
         </div>
       </div>
 
-      <div className="font-mono text-[9px] md:text-[10px] text-coh-gray tracking-widest uppercase">
-        C-CLEAR PRODUCTIONS // INDUSTRY PRESENTATION
+      <div className="flex flex-col items-center gap-3">
+        <img src="/cclear-studios-logo.png" alt="C-Clear Studios" className="h-14 md:h-16 w-auto opacity-80" />
+        <div className="font-mono text-[9px] md:text-[10px] text-coh-gray tracking-widest uppercase">
+          INDUSTRY PRESENTATION
+        </div>
       </div>
     </div>
   </div>
