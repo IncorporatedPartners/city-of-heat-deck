@@ -60,7 +60,7 @@ export const EnsembleSlide = () => (
           <div className="relative aspect-video bg-black overflow-hidden">
             <video
               src="/COH_Trailer_browser.mp4"
-              className="w-full h-full object-contain bg-black"
+              className="w-full h-full object-cover bg-black"
               controls
               autoPlay
               muted

@@ -69,7 +69,7 @@ export const TrailerSlide = () => {
           ) : (
             <video
               src={TRAILER_URL}
-              className="w-full h-full object-contain bg-black"
+              className="w-full h-full object-cover bg-black"
               controls
               autoPlay
             />
