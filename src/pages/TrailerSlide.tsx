@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Watermark } from '../components';
 
-const TRAILER_URL = '/COH_Trailer_web.mp4';
+const TRAILER_URL = '/COH_Trailer_browser.mp4';
 
 export const TrailerSlide = () => {
   const [isPlaying, setIsPlaying] = useState(false);

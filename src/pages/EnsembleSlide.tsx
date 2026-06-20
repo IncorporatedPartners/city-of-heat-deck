@@ -59,7 +59,7 @@ export const EnsembleSlide = () => (
         <section className="md:col-span-5 bg-coh-panel/75 border border-coh-orange/40 overflow-hidden flex flex-col">
           <div className="relative aspect-video bg-black overflow-hidden">
             <video
-              src="/COH_Trailer_web.mp4"
+              src="/COH_Trailer_browser.mp4"
               className="w-full h-full object-contain bg-black"
               controls
               autoPlay
